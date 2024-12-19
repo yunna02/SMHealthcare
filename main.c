@@ -39,7 +39,7 @@ int main() {
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
-		int cal_L = calculatecal_L(&health_data); // Calculate remaining calories
+		int cal_L = calculatecal_L(&health_data); // Calculate remaining calories ('cal_L' represents 'calories are left')
 	
 		// If remaining calories are zero, exit the system
 		if (cal_L == 0){
