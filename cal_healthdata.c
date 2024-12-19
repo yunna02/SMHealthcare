@@ -24,6 +24,11 @@
     			3. save the total remaining calrories
 */
 
+int calculatecal_L(const HealthData* health_data) {
+    return health_data->total_calories_intake - BASAL_METABOLIC_RATE - health_data->total_calories_burned;
+}
+
+
 void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 	int i;
 	FILE* file = fopen(HEALTHFILEPATH, "w");
@@ -52,7 +57,7 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 
 
     // ToCode: to save the total remaining calrories
-	int cal_L = health_data->total_calories_intake - BASAL_METABOLIC_RATE - health_data->total_calories_burned;
+	int cal_L = calculatecal_L(health_data);
 	fprintf(file, "[Total]\n");
 	fprintf(file, "Basal metabolic rate: %d kcal\n", BASAL_METABOLIC_RATE);
 	fprintf(file, "The remaining calories: %d kcal\n", cal_L);
@@ -96,7 +101,7 @@ void printHealthData(const HealthData* health_data) {
 	printf("Total calories burned: %d kcal\n", health_data->total_calories_burned);
 	printf("Total calories intake: %d kcal\n", health_data->total_calories_intake);
     
-	int cal_L = health_data->total_calories_intake - BASAL_METABOLIC_RATE - health_data->total_calories_burned;
+	int cal_L = calculatecal_L(health_data);
 	printf("The remaining calories: %d kcal\n", cal_L);
 	printf("=======================================================================\n \n");
     

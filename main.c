@@ -25,7 +25,7 @@ void inputExercise(HealthData* health_data);
 // Function prototype for inputDiet
 void inputDiet(HealthData* health_data);
 
-
+int calculatecal_L(const HealthData* health_data);
 
 int main() {
 	// To initialize the health data object
@@ -38,9 +38,9 @@ int main() {
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
-		int goal_cal_balance = DAILY_CALORIE_GOAL - BASAL_METABOLIC_RATE + health_data.total_calories_intake - health_data.total_calories_burned;
+		int cal_L = calculatecal_L(&health_data);
 
-		if (goal_cal_balance == 0){
+		if (cal_L == 0){
 			printf("You have consumed all your calories for today! \n");
 			saveData(HEALTHFILEPATH, &health_data); // Save data before exiting
 			printf("=======================================================================\n");
