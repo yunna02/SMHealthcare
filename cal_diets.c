@@ -73,16 +73,15 @@ void inputDiet(HealthData* health_data) {
         if (choice >= 1 && choice <= diet_list_size) {
 
     // ToCode: to enter the selected diet in the health data
-    		printf("You chose %s (%d kcal)\n", 
-            	diet_list[choice - 1].food_name, diet_list[choice - 1].calories_intake);
+    		printf("You chose %s (%d kcal)\n", diet_list[choice - 1].food_name, diet_list[choice - 1].calories_intake);
             	
 
     // ToCode: to enter the total calories intake in the health data
-			
 			health_data->total_calories_intake += diet_list[choice - 1].calories_intake;
 
             printf("Total Calories Intake: %d kcal\n", health_data->total_calories_intake);
             break;
+            
         } else {
             printf("Invalid choice. Try again.\n");
         }

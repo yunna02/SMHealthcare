@@ -38,14 +38,14 @@ int main() {
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     do {
-    	int goal_cal_balance = DAILY_CALORIE_GOAL - BASAL_METABOLIC_RATE + health_data.total_calories_intake - health_data.total_calories_burned;
+		int goal_cal_balance = DAILY_CALORIE_GOAL - BASAL_METABOLIC_RATE + health_data.total_calories_intake - health_data.total_calories_burned;
 
-    	if (goal_cal_balance == 0){
-            printf("You have consumed all your calories for today! \n");
-            saveData(HEALTHFILEPATH, &health_data); // Save data before exiting
-            printf("=======================================================================\n");
-            printf("System is exiting...\n");
-            break; // Exit the system
+		if (goal_cal_balance == 0){
+			printf("You have consumed all your calories for today! \n");
+			saveData(HEALTHFILEPATH, &health_data); // Save data before exiting
+			printf("=======================================================================\n");
+			printf("System is exiting...\n");
+			break; // Exit the system
 		} 
 		
 		printf("\n=======================================================================\n");
@@ -63,12 +63,12 @@ int main() {
         switch (choice) {
             case 1:
             	inputExercise(&health_data);
-    			saveData(HEALTHFILEPATH, &health_data); 
+				saveData(HEALTHFILEPATH, &health_data); 
                 break;
                 
             case 2:
             	inputDiet(&health_data);
-    			saveData(HEALTHFILEPATH, &health_data);
+				saveData(HEALTHFILEPATH, &health_data);
                 break;
                 
             case 3:
@@ -77,8 +77,8 @@ int main() {
                 
             case 4:
             	saveData(HEALTHFILEPATH, &health_data);
-    			printf("Exit the system.\n");
-    			printf("=======================================================================\n");
+				printf("Exit the system.\n");
+				printf("=======================================================================\n");
                 return 0;
                 
             default:
@@ -87,5 +87,6 @@ int main() {
         }
     } while (1);
     
+	
 	return 0;
 }
