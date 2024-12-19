@@ -45,7 +45,7 @@ int main() {
 			saveData(HEALTHFILEPATH, &health_data); // Save data before exiting
 			printf("=======================================================================\n");
 			printf("System is exiting...\n");
-			break; // Exit the system
+			return 0; // Exit the system
 		} 
 		
 		printf("\n=======================================================================\n");
