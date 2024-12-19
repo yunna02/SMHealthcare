@@ -81,7 +81,7 @@ void inputDiet(HealthData* health_data) {
 			health_data->diet_count++;
             
     // ToCode: to enter the total calories intake in the health data
-			health_data->total_calories_intake += diet_list[choice - 1].calories_intake;
+			health_data->total_calories_intake += diet_list[choice - 1].calories_intake; 
 
             printf("Total Calories Intake: %d kcal\n", health_data->total_calories_intake); // Display total calorie intake
             break;
