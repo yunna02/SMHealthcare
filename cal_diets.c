@@ -34,11 +34,10 @@ void loadDiets(const char* DIETFILEPATH) {
     }
 
      // ToCode: to read a list of the diets from the given file
-    while (fscanf(file, "%s %d", diet_list[diet_list_size].name, &diet_list[diet_list_size].calories) == 2) {
-    	diet_lsit_size++;
-    	
-        if (diet_list_size >= MAX_DIETS){
-        	break;
+    while (fscanf(file, "%s %d", diet_list[diet_list_size].food_name, &diet_list[diet_list_size].calories_intake) == 2) {
+        diet_list_size++;
+        if (diet_list_size >= MAX_DIETS) {
+            break;
 		}
     }
     fclose(file);
@@ -59,10 +58,10 @@ void inputDiet(HealthData* health_data) {
     // ToCode: to provide the options for the diets to be selected
     printf("The list of diets:\n");
     for (i = 0; i < diet_list_size; i++) {
-        printf("%d. %s (%d kcal)\n", i + 1, diet_list[i].name, diet_list[i].calories);
+        printf("%d. %s (%d kcal)\n", i + 1, 
+               diet_list[i].food_name, diet_list[i].calories_intake);
     }
     printf("0. Exit\n");
-
     
     
 	// ToCode: to enter the diet to be chosen with exit option
@@ -72,16 +71,21 @@ void inputDiet(HealthData* health_data) {
         if (choice == 0) return; // Exit if the user selects 0
 
         if (choice >= 1 && choice <= diet_list_size) {
-            // ToCode: to enter the selected diet in the health data
-            health_data->calories_intake += diet_list[choice - 1].calories;
-            printf("You chose %s (%d kcal)\n", 
-                   diet_list[choice - 1].name, diet_list[choice - 1].calories);
+
+    // ToCode: to enter the selected diet in the health data
+    		printf("You chose %s (%d kcal)\n", 
+            	diet_list[choice - 1].food_name, diet_list[choice - 1].calories_intake);
+            	
+
+    // ToCode: to enter the total calories intake in the health data
+			
+			health_data->total_calories_intake += diet_list[choice - 1].calories_intake;
+
+            printf("Total Calories Intake: %d kcal\n", health_data->total_calories_intake);
             break;
         } else {
             printf("Invalid choice. Try again.\n");
         }
     } while (1);
-}    
-    // ToCode: to enter the total calories intake in the health data
-
+}
 
